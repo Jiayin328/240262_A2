@@ -14,10 +14,10 @@ import java.util.Map;
 
 public class Asg2 {
     
-    final static String PATH = "E:\\Online Learning\\Sem 5\\STIW3054 Real-Time Programming\\Assignment2\\Asg2\\Assignment2_TestFiles";
-    final static File FILE = new File(ListFiles.listFiles(PATH));
-    final static String FILE_NAME = "Display Result.xlsx";
-            
+        final String PATH = "E:\\Online Learning\\Sem 5\\STIW3054 Real-Time Programming\\Assignment2\\Asg2\\Assignment2_TestFiles";
+        final File FILE = new File (ListFiles.listFiles(PATH));
+        final static String FILE_NAME = "Display Result.xlsx";
+      
     public static void main(String[] args) throws FileNotFoundException, IOException{
         
         //scan details from comment

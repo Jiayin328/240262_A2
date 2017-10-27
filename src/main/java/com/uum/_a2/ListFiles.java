@@ -16,7 +16,6 @@ public class ListFiles extends Asg2{
     static String listFiles(String PATH) {
         File folder = new File(PATH);
         File[] files = folder.listFiles();
-        String f = "";
             
         for (File file : files) {
             if (file.isFile() && (file.getName().endsWith(".java"))) { 
@@ -26,11 +25,8 @@ public class ListFiles extends Asg2{
             }
         } 
         
-        for(int x=0; x<list.size();x++){
-            f = PATH + "\\" + list.get(x);
-        }
-        
-        return f;
+        //return PATH + "\\" + list.get(0);
+        return PATH + "\\" + list.get(1);
     }
 
     
