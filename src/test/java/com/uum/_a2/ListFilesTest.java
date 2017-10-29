@@ -6,6 +6,7 @@
 package com.uum._a2;
 
 import static com.uum._a2.ListFiles.list;
+import java.io.File;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -44,10 +45,12 @@ public class ListFilesTest {
     @Test
     public void testListFiles() {
         System.out.println("listFiles");
-        String PATH = "E:\\Online Learning\\Sem 5\\STIW3054 Real-Time Programming\\Assignment2\\Asg2\\Assignment2_TestFiles";
+        String filename = "Assignment2_TestFiles";
+        String dir = System.getProperty("user.dir"); 
+        String absolutePath = dir + File.separator + filename;
         ListFiles instance = new ListFiles();
-        String expResult = instance.PATH + "\\" + list.get(0);
-        String result = ListFiles.listFiles(PATH);
+        String expResult = ListFiles.listFiles(absolutePath);
+        String result = instance.absolutePath + File.separator + list.get(0);
         assertEquals(expResult, result);
     }
     

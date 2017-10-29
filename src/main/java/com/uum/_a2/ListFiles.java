@@ -25,8 +25,8 @@ public class ListFiles extends Asg2{
             }
         } 
         
-        return PATH + "\\" + list.get(0);
-        //return PATH + "\\" + list.get(1);
+        return PATH + File.separator + list.get(0);
+        //return PATH + File.separator + list.get(1);
     }
 
     

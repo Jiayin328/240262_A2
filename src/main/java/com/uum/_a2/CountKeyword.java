@@ -29,7 +29,8 @@ public class CountKeyword extends Asg2 {
             "try","void","volatile","while","true","null","false","const","goto"};
         Map<String,Integer> map = new TreeMap<>();
         Set<String> keywordSet = new HashSet<>(Arrays.asList(keywords));
-        Scanner input = new Scanner(FILE);
+        Scanner input;
+        input = new Scanner(FILE);
         while (input.hasNext()){ 
             String key = input.next();
             if (key.length() > 0){

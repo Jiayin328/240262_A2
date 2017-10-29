@@ -92,12 +92,12 @@ public class ExcelSheet{
                 Output[i][b] = Detail[i][b];
             }
         }
-        for (int b = 0; b < Attribute.length; b++) {
-            Output[i] = Attribute[b];
+        for (String[] Attribute1 : Attribute) {
+            Output[i] = Attribute1;
             i++;
         }
-        for (int b = 0; b < Data.length; b++) {
-            Output[i] = Data[b];
+        for (String[] Data1 : Data) {
+            Output[i] = Data1;
             i++;
         }
 

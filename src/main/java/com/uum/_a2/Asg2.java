@@ -13,9 +13,11 @@ import java.io.IOException;
 import java.util.Map;
 
 public class Asg2 {
-    
-        final String PATH = "E:\\Online Learning\\Sem 5\\STIW3054 Real-Time Programming\\Assignment2\\Asg2\\Assignment2_TestFiles";
-        final File FILE = new File (ListFiles.listFiles(PATH));
+       
+        final String filename = "Assignment2_TestFiles";
+        final String dir = System.getProperty("user.dir"); 
+        final String absolutePath = dir + File.separator + filename;
+        final File FILE = new File (ListFiles.listFiles(absolutePath));
         final static String FILE_NAME = "Display Result.xlsx";
       
     public static void main(String[] args) throws FileNotFoundException, IOException{
