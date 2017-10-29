@@ -22,23 +22,23 @@ public class ExcelSheet{
     XSSFSheet sheet = workbook.createSheet("Line of Codes");
     
     String fileName;
-    String Detail[][];
-    String Attribute[][];
-    String Data[][];
-    String Output[][];
+    String detail[][];
+    String attribute[][];
+    String data[][];
+    String output[][];
     
     public ExcelSheet(String filename) {
         sheet.setDefaultColumnWidth(10);
         this.fileName = filename;
     }
     
-    public String[][] Details(String semester, String course, String group, String task) {
-        Detail = new String[][] {{"Semester",semester},{"Course",course},{"Group",group},
+    public String[][] details(String semester, String course, String group, String task) {
+        detail = new String[][] {{"Semester",semester},{"Course",course},{"Group",group},
             {"Task",task},{}};
-        return Detail;
+        return detail;
     }
     
-    public ExcelSheet Data(Map<String, Integer> map, String name, String matric, 
+    public ExcelSheet data(Map<String, Integer> map, String name, String matric, 
             String loc, String blank, String comment, String actLoc, String ttl) {
         
         String key[] = new String [map.size()];
@@ -52,60 +52,60 @@ public class ExcelSheet{
         }
         
         //attributes
-        String attribute[] = new String[key.length + 6];
-        attribute[0] = "Matrix";
-        attribute[1] = "LOC";
-        attribute[2] = "Blank";
-        attribute[3] = "Comment";
-        attribute[4] = "Actual LOC";
-        for (int i=5; i<(attribute.length-1); i++) {
-            attribute[i] = key[(i-5)];
+        String attributes[] = new String[key.length + 6];
+        attributes[0] = "Matrix";
+        attributes[1] = "LOC";
+        attributes[2] = "Blank";
+        attributes[3] = "Comment";
+        attributes[4] = "Actual LOC";
+        for (int i=5; i<(attributes.length-1); i++) {
+            attributes[i] = key[(i-5)];
         }
-        attribute[5 + key.length] = "Total";
-        String attributeList[][] = {{"","","","","","Java keywords"},attribute};
+        attributes[5 + key.length] = "Total";
+        String attributeList[][] = {{"","","","","","Java keywords"},attributes};
     
         //data
-        String [] data = new String [value.length + 6];
-        data[0]=matric;
-        data[1]=loc;
-        data[2]=blank;
-        data[3]=comment;
-        data[4]=actLoc;
-        for (int i=5; i<(data.length-1); i++) {
-            data[i] = value[(i-5)];
+        String [] datas = new String [value.length + 6];
+        datas[0]=matric;
+        datas[1]=loc;
+        datas[2]=blank;
+        datas[3]=comment;
+        datas[4]=actLoc;
+        for (int i=5; i<(datas.length-1); i++) {
+            datas[i] = value[(i-5)];
         }
-        data[5 + value.length] = ttl;
-        String dataList[][] = {data};
+        datas[5 + value.length] = ttl;
+        String dataList[][] = {datas};
         
-        this.Data = dataList;
-        this.Attribute = attributeList;
+        this.data = dataList;
+        this.attribute = attributeList;
         return this;
     }
     
     public void arrange() {
 
-        Output = new String[Detail.length + Attribute.length + Data.length][];
+        output = new String[detail.length + attribute.length + data.length][];
         int i = 0;
-        for (; i < Detail.length; i++) {
-            Output[i] = new String[Detail[i].length];
-            for (int b = 0; b < Detail[i].length; b++) {
-                Output[i][b] = Detail[i][b];
+        for (; i < detail.length; i++) {
+            output[i] = new String[detail[i].length];
+            for (int b = 0; b < detail[i].length; b++) {
+                output[i][b] = detail[i][b];
             }
         }
-        for (String[] Attribute1 : Attribute) {
-            Output[i] = Attribute1;
+        for (String[] Attribute1 : attribute) {
+            output[i] = Attribute1;
             i++;
         }
-        for (String[] Data1 : Data) {
-            Output[i] = Data1;
+        for (String[] Data1 : data) {
+            output[i] = Data1;
             i++;
         }
 
         int rowNum = 0;
-        for (Object[] attribute : Output) {
+        for (Object[] attributesA : output) {
             Row row = sheet.createRow(rowNum++);
             int colNum = 0;
-            for (Object field : attribute) {
+            for (Object field : attributesA) {
                 Cell cell = row.createCell(colNum++);
                 if (field instanceof String) {
                     cell.setCellValue((String) field);

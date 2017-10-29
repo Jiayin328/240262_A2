@@ -18,11 +18,9 @@ public class CountLOC extends Asg2{
     public int countLineNumber() {
         int lines = 0;
         
-        try{
-            LineNumberReader lineNumberReader = new LineNumberReader(new FileReader(FILE));
-            lineNumberReader.skip(Long.MAX_VALUE);
+        try(LineNumberReader lineNumberReader = new LineNumberReader(new FileReader(FILE))) {
+            long skip = lineNumberReader.skip(Long.MAX_VALUE);
             lines = lineNumberReader.getLineNumber()+1;
-            lineNumberReader.close();
         }catch(FileNotFoundException e){
             System.out.println("FileNotFoundException Occurred" + e.getMessage());
         }catch(IOException e){
@@ -36,7 +34,8 @@ public class CountLOC extends Asg2{
         int empty = 0;
 
         try{
-            BufferedReader br = new BufferedReader(new FileReader(FILE));
+            BufferedReader br;
+            br = new BufferedReader(new FileReader(FILE));
             while ((line = br.readLine()) != null) {
                 if (line.trim().isEmpty()) {
                   empty++;
@@ -54,8 +53,7 @@ public class CountLOC extends Asg2{
         String line;
         int count = 0;
 
-        try{
-            BufferedReader br = new BufferedReader(new FileReader(FILE));
+        try(BufferedReader br = new BufferedReader(new FileReader(FILE))) {
             while ((line = br.readLine()) != null) {
                 if (line.startsWith("//")) 
                   count++;
@@ -66,7 +64,6 @@ public class CountLOC extends Asg2{
                     }
                 }
             }
-            br.close();
         }catch(FileNotFoundException e){
             System.out.println("FileNotFoundException Occurred" + e.getMessage());
         }catch(IOException e){

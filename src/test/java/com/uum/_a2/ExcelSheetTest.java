@@ -54,7 +54,7 @@ public class ExcelSheetTest {
         String task = "";
         ExcelSheet instance = new ExcelSheet("");
         String[][] expResult = new String[][] {{"Semester",semester},{"Course",course},{"Group",group},{"Task",task},{}};
-        String[][] result = instance.Details(semester, course, group, task);
+        String[][] result = instance.details(semester, course, group, task);
         assertArrayEquals(expResult, result);
     }
 
@@ -75,7 +75,7 @@ public class ExcelSheetTest {
         String ttl = "";
         ExcelSheet instance = new ExcelSheet("");
         ExcelSheet expResult = instance;
-        ExcelSheet result = instance.Data(map, name, matric, loc, blank, comment, actLoc, ttl);
+        ExcelSheet result = instance.data(map, name, matric, loc, blank, comment, actLoc, ttl);
         assertEquals(expResult, result);
     }
 

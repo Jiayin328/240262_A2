@@ -14,7 +14,7 @@ import java.util.Map;
 
 public class Asg2 {
        
-        final String filename = "Assignment2_TestFiles";
+        String filename = "Assignment2_TestFiles";
         final String dir = System.getProperty("user.dir"); 
         final String absolutePath = dir + File.separator + filename;
         final File FILE = new File (ListFiles.listFiles(absolutePath));
@@ -23,7 +23,7 @@ public class Asg2 {
     public static void main(String[] args) throws FileNotFoundException, IOException{
         
         //scan details from comment
-        scanComment scan = new scanComment();
+        ScanComment scan = new ScanComment();
         String sem = scan.getSem();
         String course = scan.getCourse();
         String grp = scan.getGroup();
@@ -53,8 +53,8 @@ public class Asg2 {
         
         //display output in Excel
         ExcelSheet excel = new ExcelSheet(FILE_NAME);
-        excel.Details(sem, course, grp, task);
-        excel.Data(map, name, matric, ttlLines, blank, comment, act, ttlVal);
+        excel.details(sem, course, grp, task);
+        excel.data(map, name, matric, ttlLines, blank, comment, act, ttlVal);
         excel.arrange();
         System.out.println("Excel created!");
     }    
